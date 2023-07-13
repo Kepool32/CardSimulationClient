@@ -1,0 +1,55 @@
+.form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+
+}
+
+.form-wrapper {
+    width: 400px;
+    padding: 2rem;
+
+    border-radius: 8px;
+}
+
+.form-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.form-input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.form-submit {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.form-overlay {
+    z-index: 9999;
+}
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    color: #555;
+    cursor: pointer;
+}
+.close-button:hover {
+    color: #fff;
+}

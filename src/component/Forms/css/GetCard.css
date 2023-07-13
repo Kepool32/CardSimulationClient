@@ -1,0 +1,44 @@
+.getcard-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.getcard-card {
+    width: 250px;
+    height: 150px;
+    padding: 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #fff;
+}
+
+.getcard-card-visa {
+    background: linear-gradient(to right, #1a237e, #1565c0);
+}
+
+.getcard-card-mastercard {
+    background: linear-gradient(to right, #b71c1c, #d32f2f);
+}
+
+.getcard-card-number,
+.getcard-card-owner,
+.getcard-card-cvc,
+.getcard-card-type {
+    margin-bottom: 10px;
+}
+
+.getcard-card-number {
+    font-weight: bold;
+}
+
+.getcard-card-type {
+    text-transform: uppercase;
+}
+.getcard-card-balance{
+    color: black;
+}

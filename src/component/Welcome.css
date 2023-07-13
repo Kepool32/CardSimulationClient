@@ -1,0 +1,55 @@
+body {
+    background-image: url('../image/1614648566_28-p-foni-karta-dlya-fotoshopa-37.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.welcome-title {
+    color: #6798b9;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    animation: fade-in 1s ease-in;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.welcome-button {
+    padding: 0.75rem 1.5rem;
+    margin-bottom: 1rem;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    animation: slide-in 1s ease-in;
+}
+
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 1.3rem;
+    }
+
+    .welcome-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+}
