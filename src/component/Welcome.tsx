@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Welcome.css';
 import ButtonAddCard from './Button/ButtonAddCard';
 import ButtonGetCard from './Button/ButtonGetCard';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react';
 import cardStore from '../../store/CardStore';
-import GetCard from './GetCard';
+
 import './css/FormAdmin.css';
 import CardListForm from './CardListForm';
 

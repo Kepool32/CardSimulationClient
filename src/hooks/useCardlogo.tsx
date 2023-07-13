@@ -30,7 +30,7 @@ const CardLogo: React.FC<CardLogoProps> = ({ cardNumber }) => {
 
     const cardType = detectCardType(cardNumber);
 
-    return <img src={cardType}  />;
+    return <img src={cardType} alt='' />;
 };
 
 export default CardLogo;
