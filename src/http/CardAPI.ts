@@ -4,7 +4,7 @@ import { message } from "antd";
 
 class CardApi {
 
-    REACT_APP_API_URL='https://master--neon-souffle-247121.netlify.app/'
+    REACT_APP_API_URL='https://cardsim.onrender.com/'
 
     async fetchCards(): Promise<Card[]> {
         try {
