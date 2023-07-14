@@ -22,8 +22,7 @@ const CreditСard: React.FC = () => {
     const [isCardFlipped, setCardFlipped] = useState(false);
     const [isCVVHovered, setCVVHovered] = useState(false);
     const [email, setEmail] = useState('');
-    const [messageText, setMessageText] = useState('');
-    const [isSuccess, setIsSuccess] = useState(false);
+
 
 
     const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -89,16 +88,9 @@ const CreditСard: React.FC = () => {
             email,
         };
 
-        try {
-            await cardStore.addCard(cardData);
-            setMessageText('Карта успешно добавлена.');
-            setIsSuccess(true);
-        } catch (error) {
-            setMessageText('Не удалось добавить карту.');
-            setIsSuccess(false);
-        }
 
-        message.info(messageText);
+
+
     };
     return (
         <div className={`overlay ${isCardFlipped ? 'flipped' : ''}`}>
