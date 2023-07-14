@@ -85,6 +85,31 @@ const CreditСard: React.FC = () => {
 
         const expirationDate = `${expirationMonth}/${expirationYear}`;
 
+        if (cardNumber.length !== 16) {
+            message.error('Номер карты должен состоять из 16 цифр');
+            return;
+        }
+
+        if (!cardHolder) {
+            message.error('Пожалуйста, введите имя владельца карты');
+            return;
+        }
+
+        if (!expirationMonth || !expirationYear) {
+            message.error('Пожалуйста, выберите месяц и год истечения срока действия');
+            return;
+        }
+
+        if (!cvc) {
+            message.error('Пожалуйста, введите CVV');
+            return;
+        }
+
+        if (!email) {
+            message.error('Пожалуйста, введите адрес электронной почты');
+            return;
+        }
+
         const cardData: Card = {
             cardNumber,
             cardHolder,
@@ -100,8 +125,8 @@ const CreditСard: React.FC = () => {
         setExpirationYear('');
         setCVV('');
         setEmail('');
-
     };
+
 
     return (
         <div className={`overlay ${isCardFlipped ? 'flipped' : ''}`}>
