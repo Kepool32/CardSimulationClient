@@ -56,3 +56,7 @@
 .form-admin-close:hover {
     background-color: #d32f2f;
 }
+.wrong-password-text{
+    color: red;
+    font-family: "Adobe Arabic";
+}

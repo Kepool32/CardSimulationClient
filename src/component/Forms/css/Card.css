@@ -191,9 +191,10 @@
 }
 
 @media screen and (max-width: 600px) {
-    * span{
+    * span {
         font-size: 12px;
     }
+
     .container form {
         width: 100%;
         padding-top: 40px;

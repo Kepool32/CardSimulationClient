@@ -12,6 +12,7 @@ const FormGetCard: React.FC<FormGetCardProps> = ({ onClose }) => {
     const [code, setCode] = useState('');
     const [isCodeInputVisible, setCodeInputVisible] = useState(false);
     const [isCardVisible, setCardVisible] = useState(false);
+    const [isCodeSent, setCodeSent] = useState(false);
 
     const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(event.target.value);
@@ -26,6 +27,7 @@ const FormGetCard: React.FC<FormGetCardProps> = ({ onClose }) => {
         try {
             await cardStore.sendConfirmationCodeByEmail(email); // Вызов функции отправки кода на сервер
             setCodeInputVisible(true); // Показать инпут для кода
+            setCodeSent(true); // Установить флаг, что код был отправлен
             console.log('Код подтверждения отправлен на почту');
         } catch (error) {
             console.error('Ошибка при отправке кода подтверждения:', error);
@@ -68,6 +70,11 @@ const FormGetCard: React.FC<FormGetCardProps> = ({ onClose }) => {
                     </form>
                 ) : (
                     <>
+                        {isCodeSent && (
+                            <p className="formgetcard-message">
+                                Код подтверждения был отправлен на вашу почту.
+                            </p>
+                        )}
                         <form className="formgetcard-form" onSubmit={handleCodeSubmit}>
                             <input
                                 className="formgetcard-input"

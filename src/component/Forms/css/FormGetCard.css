@@ -58,3 +58,8 @@
 .formgetcard-submit-button:hover {
     background-color: #0056b3;
 }
+.invalid-email-text{
+    color:red;
+    font-family: "Adobe Arabic";
+
+}

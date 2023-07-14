@@ -12,6 +12,7 @@ interface FormAdminProps {
 const FormAdmin: React.FC<FormAdminProps> = ({ onClose }) => {
     const [password, setPassword] = useState('');
     const [isFormSubmitted, setFormSubmitted] = useState(false);
+    const [isWrongPassword, setWrongPassword] = useState(false);
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -22,11 +23,14 @@ const FormAdmin: React.FC<FormAdminProps> = ({ onClose }) => {
             } catch (error) {
                 console.error('Ошибка при получении карточек:', error);
             }
+        } else {
+            setWrongPassword(true);
         }
     };
 
     const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setPassword(event.target.value);
+        setWrongPassword(false); // Сбрасываем состояние неправильного пароля при изменении значения
     };
 
     return (
@@ -36,14 +40,16 @@ const FormAdmin: React.FC<FormAdminProps> = ({ onClose }) => {
                     <label htmlFor="password" className="form-admin-label">
                         Введите пароль администратора:
                     </label>
+                    {isWrongPassword && <p className="wrong-password-text">Неправильный пароль. Попробуйте еще раз.</p>}
                     <input
                         type="password"
                         id="password"
-                        className="form-admin-input"
+                        className={`form-admin-input ${isWrongPassword ? 'wrong-password' : ''}`}
                         value={password}
                         onChange={handlePasswordChange}
                         required
                     />
+
                     <button type="submit" className="form-admin-submit">
                         Войти
                     </button>
@@ -52,13 +58,12 @@ const FormAdmin: React.FC<FormAdminProps> = ({ onClose }) => {
                     </button>
                 </form>
             ) : (
-                <form className="form-admin">
+                <div className="form-admin">
                     <button className="form-admin-close" onClick={onClose}>
                         ✖
                     </button>
-                <CardListForm />
-
-                </form>
+                    <CardListForm />
+                </div>
             )}
         </div>
     );

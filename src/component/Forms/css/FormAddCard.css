@@ -8,14 +8,14 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
-
 }
 
 .form-wrapper {
-    width: 400px;
+    width: 90%;
+    max-width: 400px; /* Максимальная ширина формы */
     padding: 2rem;
-
     border-radius: 8px;
+    background-color: #fff; /* Добавлен фон для формы */
 }
 
 .form-title {
@@ -37,19 +37,45 @@
     font-size: 1rem;
     cursor: pointer;
 }
+
 .form-overlay {
     z-index: 9999;
 }
+
 .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
     background: transparent;
     border: none;
-    font-size: 50px;
+    font-size: 30px; /* Уменьшен размер кнопки закрытия */
     color: #555;
     cursor: pointer;
 }
+
 .close-button:hover {
     color: #fff;
+}
+
+/* Медиа-запрос для мобильных устройств с максимальной шириной 480px */
+@media only screen and (max-width: 480px) {
+    .form-wrapper {
+        width: 90%;
+        max-width: 300px; /* Уменьшена максимальная ширина формы */
+        padding: 1rem; /* Уменьшен отступ внутри формы */
+        border-radius: 4px; /* Уменьшен радиус границы формы */
+    }
+
+    .form-title {
+        font-size: 1.2rem; /* Уменьшен размер заголовка формы */
+    }
+
+    .form-submit {
+        padding: 0.5rem 1rem; /* Уменьшен отступ внутри кнопки отправки */
+        font-size: 0.9rem; /* Уменьшен размер шрифта кнопки отправки */
+    }
+
+    .close-button {
+        font-size: 20px; /* Уменьшен размер кнопки закрытия */
+    }
 }
