@@ -24,7 +24,6 @@ const CreditСard: React.FC = () => {
     const [email, setEmail] = useState('');
 
 
-
     const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '');
         setCardNumber(value);
@@ -77,7 +76,9 @@ const CreditСard: React.FC = () => {
 
 
 
-    const handleClick = async () => {
+    const handleClick: React.MouseEventHandler<HTMLInputElement> = (event) => {
+        event.preventDefault();
+
         const expirationDate = `${expirationMonth}/${expirationYear}`;
 
         const cardData: Card = {
@@ -88,10 +89,16 @@ const CreditСard: React.FC = () => {
             email,
         };
 
-
-
+        cardStore.addCard(cardData);
+        setCardNumber('');
+        setCardHolder('');
+        setExpirationMonth('');
+        setExpirationYear('');
+        setCVV('');
+        setEmail('');
 
     };
+
     return (
         <div className={`overlay ${isCardFlipped ? 'flipped' : ''}`}>
             <div className="container">
