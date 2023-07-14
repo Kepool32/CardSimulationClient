@@ -26,11 +26,15 @@ const CreditСard: React.FC = () => {
 
     const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value.replace(/\D/g, '');
-        setCardNumber(value);
+        if (value.length <= 16) {
+            setCardNumber(value);
+        } else {
+            message.error('Номер карты должен состоять из 16 цифр');
+        }
     };
 
     const handleCardHolderChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value.toUpperCase();
+        const value = e.target.value.replace(/[^A-Za-z\s]/g, '').toUpperCase();
         setCardHolder(value);
 
     };
@@ -142,8 +146,10 @@ const CreditСard: React.FC = () => {
                         <input
                             type="text"
                             maxLength={16}
+                            pattern="\d{16}"
                             className="card-number-input"
                             value={cardNumber}
+                            required
                             onChange={handleCardNumberChange}
                         />
                     </div>
@@ -154,6 +160,7 @@ const CreditСard: React.FC = () => {
                             className="card-holder-input"
                             value={cardHolder}
                             onChange={handleCardHolderChange}
+                            required
                         />
                     </div>
                     <div className="flexbox">
@@ -191,8 +198,7 @@ const CreditСard: React.FC = () => {
                                 <option value="" disabled>
                                     year
                                 </option>
-                                <option value="21">2021</option>
-                                <option value="22">2022</option>
+
                                 <option value="23">2023</option>
                                 <option value="24">2024</option>
                                 <option value="25">2025</option>
@@ -213,6 +219,7 @@ const CreditСard: React.FC = () => {
                                 onChange={handleCVVChange}
                                 onMouseEnter={handleCVVMouseEnter}
                                 onMouseLeave={handleCVVMouseLeave}
+                                required
                             />
                         </div>
                     </div>
@@ -222,6 +229,7 @@ const CreditСard: React.FC = () => {
                             type="email"
                             value={email}
                             onChange={handleEmailChange}
+                            required
 
 
                         />

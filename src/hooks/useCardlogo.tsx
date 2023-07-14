@@ -10,10 +10,10 @@ interface CardLogoProps {
 
 const CardLogo: React.FC<CardLogoProps> = ({ cardNumber }) => {
     const detectCardType = (cardNumber: string) => {
-        const visaPattern = /^4/;
-        const mastercardPattern = /^5[1-5]/;
-        const amexPattern = /^3[47]/;
-        const discoverPattern = /^6(?:011|5)/;
+        const visaPattern = /^4[0-9]{12}(?:[0-9]{3})?$/;
+        const mastercardPattern = /^5[1-5][0-9]{14}$/;
+        const amexPattern = /^3[47][0-9]{13}$/;
+        const discoverPattern = /^6(?:011|5[0-9]{2})[0-9]{12}$/;
 
         if (cardNumber.match(visaPattern)) {
             return visaImage;
