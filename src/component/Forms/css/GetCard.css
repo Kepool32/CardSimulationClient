@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    overflow-x: auto; /* Добавлено свойство для скролла горизонтального контейнера */
 }
 
 .getcard-card {
