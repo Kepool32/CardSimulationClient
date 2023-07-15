@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import './css/Card.css';
 import chip from './image/chip.png';
 import CardLogo from "../../hooks/useCardlogo";
-import cardStore from "../../store/CardStore";
+
 import {Card} from "../../interface/Card";
 import {message} from "antd";
 import cardApi from "../../http/CardAPI";
-
 
 
 
