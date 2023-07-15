@@ -5,6 +5,7 @@ import CardLogo from "../../hooks/useCardlogo";
 import cardStore from "../../store/CardStore";
 import {Card} from "../../interface/Card";
 import {message} from "antd";
+import cardApi from "../../http/CardAPI";
 
 
 
@@ -80,7 +81,7 @@ const CreditСard: React.FC = () => {
 
 
 
-    const handleClick: React.MouseEventHandler<HTMLInputElement> = (event) => {
+    const handleClick: React.MouseEventHandler<HTMLInputElement> = async (event) => {
         event.preventDefault();
 
         const expirationDate = `${expirationMonth}/${expirationYear}`;
@@ -118,13 +119,25 @@ const CreditСard: React.FC = () => {
             email,
         };
 
-        cardStore.addCard(cardData);
-        setCardNumber('');
-        setCardHolder('');
-        setExpirationMonth('');
-        setExpirationYear('');
-        setCVV('');
-        setEmail('');
+        try {
+            const response = await cardApi.addCard(cardData);
+            if (response.success) {
+                message.success(response.message);
+                // Ваш код обработки успешного добавления карточки
+            } else {
+                message.error(response.message);
+                // Ваш код обработки ошибки при добавлении карточки
+            }
+
+            setCardNumber('');
+            setCardHolder('');
+            setExpirationMonth('');
+            setExpirationYear('');
+            setCVV('');
+            setEmail('');
+        } catch (error) {
+            console.error("Ошибка при добавлении карточки:", error);
+        }
     };
 
 

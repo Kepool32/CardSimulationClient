@@ -44,7 +44,7 @@ class CardStore {
     async getCardByCode(email: string, code: string) {
         try {
             const card = await cardApi.getCardByCode(email, code);
-            this.cardList = [card]; // Сохранение полученных данных карты в свойство cardList
+            this.cardList = Array.isArray(card) ? card : []; // Убедиться, что присваиваем только массив Card[]
             console.log('Данные карты:', card);
         } catch (error) {
             console.error('Ошибка при получении данных карты:', error);

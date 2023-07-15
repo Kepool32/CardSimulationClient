@@ -4,7 +4,7 @@ import { message } from "antd";
 
 class CardApi {
 
-    REACT_APP_API_URL='https://cardsim.onrender.com/'
+    REACT_APP_API_URL='http://localhost:5000/'
 
     async fetchCards(): Promise<Card[]> {
         try {
@@ -16,15 +16,21 @@ class CardApi {
         }
     }
 
-    async addCard(cardData: Card): Promise<void> {
+    async addCard(cardData: Card): Promise<{ success: boolean; message: string }> {
         try {
             await axios.post(this.REACT_APP_API_URL+'cards', cardData);
-            message.success("Карточка успешно добавлена");
-        } catch (error) {
-            console.error("Ошибка при добавлении карточки:", error);
-            message.error("Ошибка при добавлении карточки");
+            return { success: true, message: "Карточка успешно добавлена" };
+        } catch (error: any) {
+            if (error.response && error.response.data.message === 'Card with this email already exists') {
+                // Обработка ошибки, когда на этот email уже есть карточка
+                return { success: false, message: "На этот email уже есть карточка" };
+            } else {
+                console.error("Ошибка при добавлении карточки:", error);
+                return { success: false, message: "Ошибка при добавлении карточки" };
+            }
         }
     }
+
 
     async sendConfirmationCodeByEmail(email: string): Promise<string> {
         try {

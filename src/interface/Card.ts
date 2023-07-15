@@ -8,3 +8,5 @@ export interface Card {
     cardType?:string;
     balance?:number;
 }
+
+
